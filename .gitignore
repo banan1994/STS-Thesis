@@ -1,0 +1,9 @@
+# ignorera allt...
+*
+
+# ...utom dessa:
+!.gitignore
+!collect.sh
+!companies.txt
+!get_tweets.py
+!README.md
