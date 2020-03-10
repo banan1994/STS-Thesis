@@ -19,7 +19,6 @@ cat companies.txt | while read line; do
     query="$line OR to:"${line#'@'}" OR from:"${line#'@'}
     mkdir "$DATE/$line"
     touch "$DATE/$line/INFO.txt"
-    touch "$DATE/$line/tweet_list.json"
     echo $(date +%T)" - collecting '${query}'" | tee -a "$DATE/log.txt"
     python3 get_tweets.py "${query}" "$DATE/$line" 2>&1 | tee -a "$DATE/log.txt"
     echo $(date +%T)" - done with $line" | tee -a "$DATE/log.txt"

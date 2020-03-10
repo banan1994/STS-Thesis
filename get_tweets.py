@@ -22,6 +22,8 @@ För att testa att den verkligen fungerar:
 -Jämförde insamlade tweets med resultaten på hemsidan
 '''
 
+FILE_SIZE = 1000
+
 # Ha nyckeln, annars går det inte.
 with open("twitter_auth.json") as f:
     TWITTER_APP_AUTH = json.load(f)
@@ -35,33 +37,46 @@ def main(argv):
     search_term = argv[0]
     directory = argv[1]
 
-    tweet_count = 0
+    
 
     api = connectTweepy()
 
     # Tweets har unika ID ordnade efter tid. 
     # Hämtar den senaste tweeten för att få tillgång till max_id. 
-    tweet_list = getInitialTweet(search_term, api)
-    earliest_tweet = latest_tweet = tweet_list[0]
-    tweet_count += 1
+    earliest_tweet = latest_tweet = getInitialTweet(search_term, api)
 
-    # Filerna måste inte finnas, men mappen måste. 
-    createFiles(latest_tweet, directory)
+    # Lite översiktsinfo. Mappen måste finnas.  
+    with open(directory+"/INFO.txt", "w") as f:
+        f.write("Contains tweets between " + str(latest_tweet["created_at"]))
 
-    while True:
-        # Vi vill ha tweets med IDn mindre än den tidigaste tweeten vi redan har.
-        max_id = earliest_tweet.id - 1
-        # Hämtar upp till 100 till.
-        tweet_list, tweets_remaining = getMoreTweets(search_term, api, max_id)
-        if not tweets_remaining:
+    tweet_count = 0
+    file = 0
+    max_id = earliest_tweet["id"] + 1
+    tweets_remaining = True
+    while tweets_remaining:
+        tweet_list = []
+        # Inre loopen körs tills listan är full (FILE_SIZE).
+        while ((tweet_count - (file*FILE_SIZE)) // FILE_SIZE) == 0:
+            # Vi vill ha tweets med IDn mindre än den tidigaste tweeten vi redan har.
+            max_id = earliest_tweet["id"] - 1
+            # Hämtar upp till 100 till.
+            new_tweets, tweets_remaining = getMoreTweets(search_term, api, max_id)
+            if not tweets_remaining:
+                break
+            new_tweets = cleanResults(new_tweets)
+            tweet_count += len(new_tweets)
+            tweet_list += new_tweets
+            # Sista i listan är den tidigaste tweeten. 
+            earliest_tweet = tweet_list[-1]
+        if len(tweet_list) == 0:
             break
-        # Sista i listan är den tidigaste tweeten. 
-        earliest_tweet = tweet_list[-1]
         # Skriv till filerna så variablerna kan återanvändas, vill inte få slut på minne.
-        dumpTweetList(tweet_list, directory)
-        tweet_count += len(tweet_list)
+        dumpTweetList(tweet_list, directory, file)
+        file += 1
 
-    finishUp(earliest_tweet, tweet_count, directory)
+    with open(directory+"/INFO.txt", "a") as f:
+        f.write(" and " + str(earliest_tweet["created_at"]))
+        f.write("\nContains a total of " + str(tweet_count) + " tweets.")
 
 def connectTweepy():
     try:
@@ -89,15 +104,8 @@ def getInitialTweet(search_term, api):
     except Exception as e:
         print("getInitialTweet()", type(e), e)
         exit()
-    else:
-        return initial_tweet
-
-def createFiles(latest_tweet, directory):
-    with open(directory+"/INFO.txt", "w") as f:
-        f.write("Contains tweets between " + str(latest_tweet.created_at))
-    with open(directory+"/tweet_list.json", "w") as f:
-        f.write("[")
-        json.dump(latest_tweet._json, f, indent=4, separators=(',', ': '))
+    else: 
+        return initial_tweet[0]._json
 
 def getMoreTweets(search_term, api, max_id):
     try:
@@ -111,18 +119,13 @@ def getMoreTweets(search_term, api, max_id):
         print("getMoreTweets()", type(e), e)
         exit()
 
-def dumpTweetList(tweet_list, directory):
-    # Borde kanske dela upp i fler filer så den inte blir enorm...
-    with open(directory+"/tweet_list.json", "a") as f:
-        for tweet in tweet_list:
-            f.write(",\n")
-            json.dump(tweet._json, f, indent=4, separators=(',', ': '))
+def cleanResults(tweet_list):
+    # Att göra: Ta bort fält vi inte behöver
+    tweet_list = list(map(lambda x: x._json, tweet_list))
+    return tweet_list
 
-def finishUp(earliest_tweet, tweet_count, directory):
-    with open(directory+"/tweet_list.json", "a") as f:
-        f.write("\n]")
-    with open(directory+"/INFO.txt", "a") as f:
-        f.write(" and " + str(earliest_tweet.created_at))
-        f.write("\nContains a total of " + str(tweet_count) + " tweets.")
+def dumpTweetList(tweet_list, directory, file):
+    with open(directory+"/tweet_list_"+str(file+1)+".json", "w") as f:
+        f.write(json.dumps(tweet_list, indent=4, separators=(',', ': ')))
 
 main(sys.argv[1:])
