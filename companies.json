@@ -12,7 +12,7 @@
             "twitter_handle": "@United",
             "stock_handle": "UAL"
         },
-        "Soutwest Airlines": {
+        "Southwest Airlines": {
             "twitter_handle": "@SouthwestAir",
             "stock_handle": "LUV"
         },
@@ -135,7 +135,7 @@
             "stock_handle": "USB"
         },
         "PNC Financial Services": {
-            "twitter_handle": ["@PNCBank_Help", "@PNCBank_Help", "PNCNews"],
+            "twitter_handle": ["@PNCBank_Help", "@PNCNews"],
             "stock_handle": "PNC"
         }
     },
@@ -145,7 +145,7 @@
             "stock_handle": "SBUX"
         },
         "McDonald's": {
-            "twitter_handle": ["@McDonalds", "@McDonaldsCorp", "McCafe"],
+            "twitter_handle": ["@McDonalds", "@McDonaldsCorp", "@McCafe"],
             "stock_handle": "MCD"
         }, 
         "Darden Restaurants": {
@@ -181,7 +181,7 @@
     },
     "Entertainment": {
         "Walt Disney": {
-            "twitter_handle": ["@Disney", "@DisneyParks", "@DisneyStudios", "@WaltDisneyCo", "WaltDisneyWorld"],
+            "twitter_handle": ["@Disney", "@DisneyParks", "@DisneyStudios", "@WaltDisneyCo", "@WaltDisneyWorld"],
             "stock_handle": "DIS"
         },
         "Netflix": {
