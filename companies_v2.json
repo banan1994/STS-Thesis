@@ -18,7 +18,7 @@
                 "stock_handle": "UAL"
             },
             {
-                "name": "Soutwest Airlines",
+                "name": "Southwest Airlines",
                 "twitter_handle": "@SouthwestAir",
                 "stock_handle": "LUV"
             },
@@ -179,7 +179,7 @@
             },
             {
                 "name": "PNC Financial Services",
-                "twitter_handle": ["@PNCBank_Help", "@PNCBank_Help", "PNCNews"],
+                "twitter_handle": ["@PNCBank_Help","@PNCBank", "@PNCNews"],
                 "stock_handle": "PNC"
             }
         ]
@@ -194,7 +194,7 @@
             },
             {
                 "name": "McDonald's",
-                "twitter_handle": ["@McDonalds", "@McDonaldsCorp", "McCafe"],
+                "twitter_handle": ["@McDonalds", "@McDonaldsCorp", "@McCafe"],
                 "stock_handle": "MCD"
             },
             {
@@ -244,7 +244,7 @@
         "companies": [
             {
                 "name": "Walt Disney",
-                "twitter_handle": ["@Disney", "@DisneyParks", "@DisneyStudios", "@WaltDisneyCo", "WaltDisneyWorld"],
+                "twitter_handle": ["@Disney", "@DisneyParks", "@DisneyStudios", "@WaltDisneyCo", "@WaltDisneyWorld"],
                 "stock_handle": "DIS"
             },
             {
