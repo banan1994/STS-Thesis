@@ -28,7 +28,7 @@ FILE_SIZE = 1000
 with open("twitter_auth.json") as f:
     TWITTER_APP_AUTH = json.load(f)
 
-def main(argv):
+def collect(argv):
     # Kör programmet med argument.
     if len(argv) != 2:
         print("Run with 2 arguments: search_term, directory")
@@ -128,4 +128,5 @@ def dumpTweetList(tweet_list, directory, file):
     with open(directory+"/tweet_list_"+str(file+1)+".json", "w") as f:
         f.write(json.dumps(tweet_list, indent=4, separators=(',', ': ')))
 
-main(sys.argv[1:])
+if __name__ == "__main__":
+    collect(sys.argv[1:])
