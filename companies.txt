@@ -1,1 +1,9 @@
-@liberalapartiet    
+@AmericanAir
+@Delta
+@United
+@SouthwestAir
+@AlaskaAir
+@JetBlue
+@JetBlueCheeps
+@SpiritAirlines
+@HawaiianAir
