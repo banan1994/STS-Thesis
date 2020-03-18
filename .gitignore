@@ -8,8 +8,9 @@
 !get_tweets.py
 !README.md
 !testkod.ipynb
-!companies.json
-!companies_v2.json
+!companies_europe.json
+!companies_america.json
 !collect_from_json.py
+!airlines.json
 
 # Kom ihåg ! framför filnamnet
