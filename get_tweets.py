@@ -91,7 +91,7 @@ def connectTweepy():
         api = tweepy.API(auth, wait_on_rate_limit=True)
     except Exception as e:
         print("connectTweepy()", type(e), e)
-        exit()
+        exit(1)
     else:
         return api
 
@@ -103,7 +103,7 @@ def getInitialTweet(search_term, api):
             raise Exception("Empty first tweet.")
     except Exception as e:
         print("getInitialTweet()", type(e), e)
-        exit()
+        exit(1)
     else: 
         return initial_tweet[0]._json
 
@@ -117,7 +117,7 @@ def getMoreTweets(search_term, api, max_id):
             return tweet_list, True
     except Exception as e:
         print("getMoreTweets()", type(e), e)
-        exit()
+        exit(1)
 
 def cleanResults(tweet_list):
     # Att göra: Ta bort fält vi inte behöver

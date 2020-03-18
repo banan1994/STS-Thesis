@@ -1,7 +1,7 @@
 import os 
 import json
 import datetime
-import get_tweets
+import subprocess
 
 DATE = str(datetime.date.today())
 os.mkdir(DATE)
@@ -30,32 +30,38 @@ def main():
             industry = branch["industry"]
             companies = branch["companies"]
             os.mkdir(os.path.join(DATE, industry))
+
             for company in companies:
                 name = company["name"]
                 twitter_handles = company["twitter_handle"]
                 os.mkdir(os.path.join(DATE, industry, name))
                 log("Working on: " + name)
+
                 if isinstance(twitter_handles, list):
                     for handle in twitter_handles:
                         collection_dir = os.path.join(DATE, industry, name, handle)
                         os.mkdir(collection_dir)
                         searchterm = " OR ".join([handle, "to:"+handle[1:], "from:"+handle[1:]])
                         log("Collecting: " + searchterm)
-                        get_tweets.collect([searchterm, collection_dir])
-                        with open(os.path.join(collection_dir, "hej.txt"), "w") as f:
-                            pass
+
+                        res = subprocess.run(["python3", "get_tweets.py", searchterm, collection_dir], stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
+                        if res.returncode == 1:
+                            log(res.stdout)
+                        
                 else:
                     collection_dir = os.path.join(DATE, industry, name, twitter_handles)
                     os.mkdir(collection_dir)
                     searchterm = " OR ".join([twitter_handles, "to:"+twitter_handles[1:], "from:"+twitter_handles[1:]])
                     log("Collecting: " + searchterm)
-                    get_tweets.collect([searchterm, collection_dir])
-                    with open(os.path.join(collection_dir, "hej.txt"), "w") as f:
-                        pass
+
+                    res = subprocess.run(["python3", "get_tweets.py", searchterm, collection_dir], stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
+                    if res.returncode == 1:
+                        log(res.stdout)
+
                 log("Done with: " + name)
 
     except Exception as e:
         log(str(e))
-        exit()
+        exit(1)
 
 main()
