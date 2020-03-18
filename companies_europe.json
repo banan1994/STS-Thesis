@@ -77,7 +77,7 @@
             }
         ]
     },
-    
+
     {
         "industry" : "Online Travel Agency",
         "companies" : [
@@ -87,11 +87,11 @@
             },
             {
                 "name": "Booking.com",
-                "twitter_handle": "bookingcom" 
+                "twitter_handle": "@bookingcom" 
             },
             {
                 "name": "Priceline.com",
-                "twitter_handle": "priceline"
+                "twitter_handle": "@priceline"
             },
             {
                 "name": "KAYAK",
@@ -107,11 +107,11 @@
             }, 
             {
                 "name": "Home Away",
-                "twitter_handle": ["@homeaway", "@homeawayUK"]
+                "twitter_handle": ["@homeaway", "@HomeAwayUK"]
             },
             {
                 "name": "Hotels.com",
-                "twitter_handle": "hotelsdotcom"
+                "twitter_handle": "@hotelsdotcom"
             },
             {
                 "name": "Hotwire",
@@ -123,7 +123,7 @@
             },
             {
                 "name": "Travelocity",
-                "twitter_handle": "@Travelocity"
+                "twitter_handle": "@travelocity"
             },
             {
                 "name": "Trivago",
