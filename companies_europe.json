@@ -1,78 +1,80 @@
 
-{
-    "industy" : "Airlines",
-    "companies" : [
-        {
-            "name": "Lufthansa Group",
-            "twitter_handle": "@lufthansa"
-        },
-        {
-            "name": "Air France-KLM",
-            "twitter_handle": "@airfrance"
-        },
-        {
-            "name": "British Airways",
-            "twitter_handle": "@British_Airways"
-        },
-        {
-            "name": "Iberia",
-            "twitter_handle": "@iberia_en"
-        },
-        {
-            "name": "Aer Lingus",
-            "twitter_handle": "@AerLingus"
-        },
-        {
-            "name": "Vueling Airlines",
-            "twitter_handle": "@vueling"
-        },
-        {
-            "name": "Ryanair",
-            "twitter_handle": "@Ryanair"
-        },
-        {
-            "name": "Aeroflot Group",
-            "twitter_handle": "@aeroflot"
-        },
-        {
-            "name": "Turkish Airlines",
-            "twitter_handle": "@TurkishAirlines"
-        },
-        {
-            "name": "easyJet",
-            "twitter_handle": "@easyJet"
-        },
-        {
-            "name": "SAS Group",
-            "twitter_handle": "@SAS"
-        },
-        {
-            "name": "Norwegian Air",
-            "twitter_handle": "@Fly_Norwegian"
-        },
-        {
-            "name": "TAP Air Portugal",
-            "twitter_handle": "@tapairportugal"
-        },
-        {
-            "name": "Alitalia",
-            "twitter_handle": "@Alitalia"
-        },
-        {
-            "name": "Jet2.com",
-            "twitter_handle": "@jet2tweets"
-        },
-        {
-            "name": "Pegasus Airlines",
-            "twitter_handle": "@flymepegasus"
-        },
-        {
-            "name": "Flybe",
-            "twitter_handle": "@flybe"
-        },
-        {
-            "name": "Finnair",
-            "twitter_handle": "@Finnair"
-        }
-    ]
-}
+[
+    {
+        "industy" : "Airlines",
+        "companies" : [
+            {
+                "name": "Lufthansa Group",
+                "twitter_handle": "@lufthansa"
+            },
+            {
+                "name": "Air France-KLM",
+                "twitter_handle": "@airfrance"
+            },
+            {
+                "name": "British Airways",
+                "twitter_handle": "@British_Airways"
+            },
+            {
+                "name": "Iberia",
+                "twitter_handle": "@iberia_en"
+            },
+            {
+                "name": "Aer Lingus",
+                "twitter_handle": "@AerLingus"
+            },
+            {
+                "name": "Vueling Airlines",
+                "twitter_handle": "@vueling"
+            },
+            {
+                "name": "Ryanair",
+                "twitter_handle": "@Ryanair"
+            },
+            {
+                "name": "Aeroflot Group",
+                "twitter_handle": "@aeroflot"
+            },
+            {
+                "name": "Turkish Airlines",
+                "twitter_handle": "@TurkishAirlines"
+            },
+            {
+                "name": "easyJet",
+                "twitter_handle": "@easyJet"
+            },
+            {
+                "name": "SAS Group",
+                "twitter_handle": "@SAS"
+            },
+            {
+                "name": "Norwegian Air",
+                "twitter_handle": "@Fly_Norwegian"
+            },
+            {
+                "name": "TAP Air Portugal",
+                "twitter_handle": "@tapairportugal"
+            },
+            {
+                "name": "Alitalia",
+                "twitter_handle": "@Alitalia"
+            },
+            {
+                "name": "Jet2.com",
+                "twitter_handle": "@jet2tweets"
+            },
+            {
+                "name": "Pegasus Airlines",
+                "twitter_handle": "@flymepegasus"
+            },
+            {
+                "name": "Flybe",
+                "twitter_handle": "@flybe"
+            },
+            {
+                "name": "Finnair",
+                "twitter_handle": "@Finnair"
+            }
+        ]
+    }
+]
