@@ -3,15 +3,23 @@ import json
 import datetime
 import subprocess
 
+#Att göra: 
+#   -fixa system för att köra om insamling dagen efter 
+
 DATE = str(datetime.date.today())
 os.mkdir(DATE)
+stamp = datetime.datetime.now().strftime("%H:%M:%S")
+message = stamp + " - START"
 with open(os.path.join(DATE, "log.txt"), "a") as f:
-        f.write("---")
+        f.write(message)
+print(message)
 
 def log(m):
+    stamp = datetime.datetime.now().strftime("%H:%M:%S")
+    message = "\n" + stamp + " - " + m
     with open(os.path.join(DATE, "log.txt"), "a") as f:
-        f.write("\n" + m)
-    print(m)
+        f.write(message)
+    print(message)
 
 def main():
     try: 
