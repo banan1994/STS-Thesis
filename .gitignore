@@ -13,5 +13,7 @@
 !collect_from_json.py
 !airlines.json
 !test_siri.ipynb
+!sentiment_example.py
+
 
 # Kom ihåg ! framför filnamnet
